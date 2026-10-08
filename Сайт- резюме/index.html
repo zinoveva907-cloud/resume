@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Александра Папулова — Переводчик китайского языка</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f6f1e6;
+    --cream-deep: #f1ead9;
+    --ink: #2c2620;
+    --ink-soft: #5a4d40;
+    --ink-mute: #8a7a68;
+    --gold: #b89878;
+    --gold-deep: #a38b6e;
+    --line: rgba(120, 90, 70, 0.18);
+    --white: #fbf8f1;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, "Segoe UI", Arial, sans-serif;
+    background: #e8e2d5;
+    color: var(--ink);
+    line-height: 1.6;
+    background-image:
+      radial-gradient(ellipse at 5% 0%, rgba(214, 182, 156, 0.22), transparent 40%),
+      radial-gradient(ellipse at 100% 100%, rgba(196, 152, 168, 0.16), transparent 45%);
+    min-height: 100vh;
+  }
+
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 32px 40px;
+    position: relative;
+  }
+
+  .lang-switch {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    display: flex;
+    gap: 6px;
+    background: var(--white);
+    border-radius: 40px;
+    padding: 4px;
+    box-shadow: 0 4px 14px rgba(80, 60, 40, 0.08);
+    z-index: 5;
+  }
+
+  .lang-switch a {
+    font-size: 12.5px;
+    text-decoration: none;
+    color: var(--ink-mute);
+    padding: 6px 14px;
+    border-radius: 40px;
+    letter-spacing: 0.06em;
+    transition: all 0.25s ease;
+    font-weight: 500;
+  }
+
+  .lang-switch a.active { background: var(--ink); color: var(--cream); }
+  .lang-switch a:hover:not(.active) { color: var(--ink); }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 60px;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .hero-left { position: relative; z-index: 2; }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 68px;
+    line-height: 1.02;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.005em;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 .accent { font-style: italic; font-weight: 500; }
+
+  .hero-divider {
+    width: 56px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero .title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .hero .title-chinese {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 16px;
+    color: var(--ink-mute);
+    letter-spacing: 0.1em;
+    margin-bottom: 26px;
+  }
+
+  .hero .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .contact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    background: var(--white);
+    border-radius: 40px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    box-shadow: 0 3px 12px rgba(80, 60, 40, 0.07);
+    transition: all 0.25s ease;
+    letter-spacing: 0.02em;
+  }
+
+  .contact-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(80, 60, 40, 0.12);
+    color: var(--ink);
+  }
+
+  .contact-chip svg {
+    width: 14px;
+    height: 14px;
+    color: var(--gold-deep);
+    flex-shrink: 0;
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-photo {
+    width: 280px;
+    height: 360px;
+    border-radius: 140px 140px 14px 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 46px rgba(80, 60, 40, 0.22);
+    border: 5px solid var(--white);
+    background: #e8ddc9;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+
+  .hero-sakura {
+    position: absolute;
+    top: -50px;
+    right: -60px;
+    width: 340px;
+    height: 340px;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 32px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  section { position: relative; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    font-weight: 600;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+
+  .section-title-chinese {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    color: var(--ink-mute);
+    letter-spacing: 0.24em;
+    margin-left: auto;
+  }
+
+  .section-line {
+    height: 1px;
+    background: var(--line);
+    margin-top: -12px;
+    margin-bottom: 28px;
+  }
+
+  .about-text {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    max-width: 780px;
+  }
+
+  .edu-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px 32px;
+    box-shadow: 0 8px 24px rgba(80, 60, 40, 0.07);
+    border: 0.8px solid var(--line);
+    max-width: 720px;
+  }
+
+  .edu-card .year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--gold-deep);
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .edu-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .edu-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .exp-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 26px 32px;
+    box-shadow: 0 6px 20px rgba(80, 60, 40, 0.06);
+    border: 0.8px solid var(--line);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exp-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--gold) 0%, rgba(184, 152, 120, 0.3) 100%);
+  }
+
+  .exp-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 12px 28px rgba(80, 60, 40, 0.1);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .exp-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .exp-period {
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .exp-role {
+    font-size: 14px;
+    color: var(--gold-deep);
+    font-weight: 500;
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  .exp-body {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  .exp-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .exp-body li {
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .exp-body li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  .achievement {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: rgba(184, 152, 120, 0.08);
+    border-radius: 8px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--gold);
+  }
+
+  .achievement strong { color: var(--ink); font-weight: 600; }
+
+  .exhibitions-intro {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    max-width: 780px;
+  }
+
+  .exhibitions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  .exh-item {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    border: 0.8px solid var(--line);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+  }
+
+  .exh-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(80, 60, 40, 0.08);
+  }
+
+  .exh-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--gold);
+    font-weight: 600;
+    min-width: 22px;
+  }
+
+  .exh-name {
+    color: var(--ink);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .exh-en {
+    font-size: 11.5px;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .project-card {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(80, 60, 40, 0.08);
+    border: 0.8px solid var(--line);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(80, 60, 40, 0.14);
+  }
+
+  .project-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #ece2ce 0%, #ddd0b6 100%);
+  }
+
+  /* Текст-заглушка всегда внизу, картинка поверх */
+  .project-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #a38b6e;
+    letter-spacing: 0.06em;
+    text-align: center;
+    padding: 0 20px;
+    z-index: 1;
+  }
+
+  .project-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 2;
+  }
+
+  .project-body {
+    padding: 18px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .project-cat {
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    font-weight: 600;
+  }
+
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .cert-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(80, 60, 40, 0.07);
+    border: 0.8px solid var(--line);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cert-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(80, 60, 40, 0.12);
+  }
+
+  .cert-img {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    background: linear-gradient(135deg, #f5efdd 0%, #e8ddc4 100%);
+  }
+
+  .cert-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #a38b6e;
+    letter-spacing: 0.06em;
+    text-align: center;
+    padding: 0 16px;
+    line-height: 1.3;
+    z-index: 1;
+  }
+
+  .cert-img img {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .cert-info {
+    padding: 16px 18px;
+  }
+
+  .cert-year {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--gold-deep);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .cert-name {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .skills-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-block {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 24px 28px;
+    box-shadow: 0 6px 18px rgba(80, 60, 40, 0.06);
+    border: 0.8px solid var(--line);
+  }
+
+  .skill-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 0.6px solid var(--line);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    font-size: 12.5px;
+    padding: 6px 12px;
+    background: rgba(184, 152, 120, 0.10);
+    color: var(--ink-soft);
+    border-radius: 30px;
+    letter-spacing: 0.02em;
+  }
+
+  .cta {
+    text-align: center;
+    padding: 56px 32px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(80, 60, 40, 0.08);
+    border: 0.8px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .cta-sub {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.3em;
+    margin-bottom: 26px;
+  }
+
+  .cta-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 32px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 820px) {
+    .hero { padding: 32px 20px 24px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .hero-right { order: -1; }
+    .hero-photo { width: 220px; height: 280px; }
+    .hero h1 { font-size: 46px; }
+    .hero .title { font-size: 20px; }
+    .lang-switch { top: 16px; right: 20px; }
+    .container { padding: 20px 20px 60px; gap: 40px; }
+    .section-title { font-size: 28px; }
+    .section-title-chinese { display: none; }
+    .exp-card { padding: 22px 24px; }
+    .exp-company { font-size: 19px; }
+    .cta { padding: 40px 20px; }
+    .cta-title { font-size: 26px; }
+  }
+
+  @media (max-width: 500px) {
+    .hero h1 { font-size: 36px; }
+    .hero .title { font-size: 17px; }
+    .contact-chip { font-size: 12px; padding: 8px 12px; }
+    .section-title { font-size: 24px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+
+  <div class="lang-switch">
+    <a href="resume-ru.html" class="active">RU</a>
+    <a href="resume-zh.html">中文</a>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="eyebrow">Translator · 翻译</div>
+      <h1>
+        Александра<br>
+        <span class="accent">Папулова</span>
+      </h1>
+      <div class="hero-divider"></div>
+      <div class="title">Переводчик китайского языка, Москва</div>
+      <div class="title-chinese">纪雅珊 · 俄中翻译 · 俄罗斯，莫斯科</div>
+
+      <div class="contacts">
+        <a class="contact-chip" href="tel:+79636018686">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 963 601 86 86
+        </a>
+        <a class="contact-chip" href="mailto:papulova_av@mail.ru">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          papulova_av@mail.ru
+        </a>
+        <span class="contact-chip">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 2.8C4.8 2.8 1 6 1 9.9c0 2.1 1.1 3.9 2.9 5.1l-.7 2.8 3.2-1.5c.9.2 1.9.3 2.9.3.3 0 .6 0 .9-.05-.1-.4-.2-.85-.2-1.25 0-3.6 3.1-6.5 6.9-6.5.4 0 .7.03 1.1.08-.5-3.3-3.3-5.83-6.5-5.83z"/><path d="M17.5 10.5c-3.3 0-6 2.3-6 5.2 0 2.9 2.7 5.2 6 5.2.6 0 1.2-.1 1.7-.2l2.5 1.3-.6-2.3c1.5-1 2.4-2.4 2.4-4 0-2.9-2.7-5.2-6-5.2z"/></svg>
+          xiaosasha2013
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <svg class="hero-sakura" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="petal" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#f4c7d4" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#e393b0" stop-opacity="0.7"/>
+          </radialGradient>
+        </defs>
+        <path d="M 20 80 Q 120 130 200 200 T 360 340" stroke="#5e4a3a" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.5"/>
+        <g fill="url(#petal)">
+          <g transform="translate(190,190)"><ellipse cx="0" cy="-9" rx="6" ry="9"/><ellipse cx="9" cy="-3" rx="6" ry="9" transform="rotate(72)"/><ellipse cx="6" cy="8" rx="6" ry="9" transform="rotate(144)"/><ellipse cx="-6" cy="8" rx="6" ry="9" transform="rotate(216)"/><ellipse cx="-9" cy="-3" rx="6" ry="9" transform="rotate(288)"/></g>
+          <g transform="translate(270,155) scale(0.85)"><ellipse cx="0" cy="-9" rx="6" ry="9"/><ellipse cx="9" cy="-3" rx="6" ry="9" transform="rotate(72)"/><ellipse cx="6" cy="8" rx="6" ry="9" transform="rotate(144)"/><ellipse cx="-6" cy="8" rx="6" ry="9" transform="rotate(216)"/><ellipse cx="-9" cy="-3" rx="6" ry="9" transform="rotate(288)"/></g>
+          <g transform="translate(140,130) scale(0.7)"><ellipse cx="0" cy="-9" rx="6" ry="9"/><ellipse cx="9" cy="-3" rx="6" ry="9" transform="rotate(72)"/><ellipse cx="6" cy="8" rx="6" ry="9" transform="rotate(144)"/><ellipse cx="-6" cy="8" rx="6" ry="9" transform="rotate(216)"/><ellipse cx="-9" cy="-3" rx="6" ry="9" transform="rotate(288)"/></g>
+        </g>
+      </svg>
+      <div class="hero-photo">
+        <img src="resume-photo.jpg" alt="Александра Папулова">
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section>
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">О себе</h2>
+      <span class="section-title-chinese">关于我</span>
+    </div>
+    <div class="section-line"></div>
+    <p class="about-text">
+      Дипломированный переводчик китайского и английского языков с опытом работы более 7 лет. Специализируюсь на последовательном переводе на международных выставках, переговорах, промышленных объектах и в суде. Сопровождаю китайские делегации по России, работаю с высокопоставленными лицами и бизнесом. Имею сертификаты HSK 6 и TOCFL 3, прошла стажировку на Тайване и курсы повышения квалификации в Пекине, Даляне и Шэньчжэне, а также курсы последовательного перевода и числительных в школе Лян Лэтяня и семинар по основам этики переводчика.
+    </p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Образование</h2>
+      <span class="section-title-chinese">教育背景</span>
+    </div>
+    <div class="section-line"></div>
+    <div class="edu-card">
+      <div class="year">2012 — 2016</div>
+      <h3>Московский городской педагогический университет</h3>
+      <p>Институт иностранных языков, кафедра китайского языка. Специальность — «Лингвистика, перевод и переводоведение» (китайский и английский языки).</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Опыт работы</h2>
+      <span class="section-title-chinese">工作经历</span>
+    </div>
+    <div class="section-line"></div>
+
+    <div class="timeline">
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-company">ООО «Понти Парфюм»</div>
+          <div class="exp-period">Ноябрь 2020 — Сентябрь 2021</div>
+        </div>
+        <div class="exp-role">Специалист ВЭД</div>
+        <div class="exp-body">
+          <ul>
+            <li>Поиск и анализ поставщиков под запросы компании</li>
+            <li>Планирование и размещение заказов в Китае и Турции</li>
+            <li>Контроль поставок, оплаты и взаиморасчётов</li>
+            <li>Оптимизация коммерческих условий, работа в 1С и Битрикс</li>
+          </ul>
+          <div class="achievement">
+            <strong>Достижения:</strong> найдены поставщики для долгосрочного сотрудничества на выгодных условиях, привезено более 1000 наименований продукции.
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-company">Shankai Sports International Ltd.</div>
+          <div class="exp-period">Июнь — Июль 2018</div>
+        </div>
+        <div class="exp-role">Переводчик китайского языка · Помощник ген. директора</div>
+        <div class="exp-body">
+          <ul>
+            <li>Работа с китайскими туристами в FAN-ID центре ЧМ по футболу 2018</li>
+            <li>Сопровождение VIP-гостей и решение вопросов на месте</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-company">«Road to Moscow»</div>
+          <div class="exp-period">Апрель 2017 — Август 2018</div>
+        </div>
+        <div class="exp-role">Менеджер по работе с китайскими партнёрами</div>
+        <div class="exp-body">
+          <ul>
+            <li>Организация туров в Россию для китайских туристов</li>
+            <li>Установление коммуникации между российской и китайской сторонами</li>
+            <li>Перевод для высокопоставленных лиц, экскурсии по Москве</li>
+          </ul>
+          <div class="achievement">
+            <strong>Достижения:</strong> 5 крупных мероприятий международного уровня, 13 индивидуальных экскурсий, 3 соглашения о долгосрочном сотрудничестве.
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-company">ООО «Рутаотао»</div>
+          <div class="exp-period">Февраль — Октябрь 2017</div>
+        </div>
+        <div class="exp-role">Менеджер по работе с клиентами · Переводчик</div>
+        <div class="exp-body">
+          <ul>
+            <li>Работа с китайскими поставщиками, заключение контрактов</li>
+            <li>Перевод документации различных тематик</li>
+            <li>Участие в переговорах и совещаниях</li>
+          </ul>
+          <div class="achievement">
+            <strong>Достижения:</strong> расширила клиентскую базу на 20%, оптимизировала её ведение — рост обслуживаемых клиентов без роста затрат.
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-company">Международный форум «Россияне»</div>
+          <div class="exp-period">Июнь 2014 — Июль 2017</div>
+        </div>
+        <div class="exp-role">Оргкомитет · Переводчик китайского языка</div>
+        <div class="exp-body">
+          <ul>
+            <li>Организация мероприятий по историко-культурному обмену</li>
+            <li>Сопровождение китайских делегаций</li>
+          </ul>
+          <div class="achievement">
+            <strong>Достижения:</strong> подписано <strong>47 двусторонних соглашений</strong> о сотрудничестве.
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-company">Школа иностранных языков «LuxEnglish»</div>
+          <div class="exp-period">Сентябрь 2015 — Март 2017</div>
+        </div>
+        <div class="exp-role">Преподаватель китайского языка</div>
+        <div class="exp-body">
+          <ul>
+            <li>Уроки китайского с погружением в языковую среду</li>
+            <li>Разработка индивидуальных планов</li>
+          </ul>
+          <div class="achievement">
+            <strong>Достижения:</strong> ученики с нуля дошли до среднего уровня, снят языковой барьер.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Международные выставки</h2>
+      <span class="section-title-chinese">国际展会翻译</span>
+    </div>
+    <div class="section-line"></div>
+    <p class="exhibitions-intro">
+      Работала переводчиком на крупнейших международных выставках в Москве, сопровождала китайские делегации, работала на переговорах и в промышленных турах.
+    </p>
+
+    <div class="exhibitions-grid">
+      <div class="exh-item"><span class="exh-num">01</span><div><span class="exh-name">InterCHARM professional</span><span class="exh-en">Косметика и оборудование</span></div></div>
+      <div class="exh-item"><span class="exh-num">02</span><div><span class="exh-name">COMTRANS</span><span class="exh-en">Коммерческий автотранспорт</span></div></div>
+      <div class="exh-item"><span class="exh-num">03</span><div><span class="exh-name">Automechanika</span><span class="exh-en">Автокомпоненты</span></div></div>
+      <div class="exh-item"><span class="exh-num">04</span><div><span class="exh-name">Интерпластика</span><span class="exh-en">Пластмассы и каучук</span></div></div>
+      <div class="exh-item"><span class="exh-num">05</span><div><span class="exh-name">Акватерм</span><span class="exh-en">Отопление и сантехника</span></div></div>
+      <div class="exh-item"><span class="exh-num">06</span><div><span class="exh-name">Ingredients Russia</span><span class="exh-en">Пищевые ингредиенты</span></div></div>
+      <div class="exh-item"><span class="exh-num">07</span><div><span class="exh-name">WorldFood Moscow</span><span class="exh-en">Продукты питания</span></div></div>
+      <div class="exh-item"><span class="exh-num">08</span><div><span class="exh-name">PIR Expo</span><span class="exh-en">Индустрия питания</span></div></div>
+      <div class="exh-item"><span class="exh-num">09</span><div><span class="exh-name">Securika Moscow</span><span class="exh-en">Безопасность и охрана</span></div></div>
+      <div class="exh-item"><span class="exh-num">10</span><div><span class="exh-name">Interlight Moscow</span><span class="exh-en">Освещение и электротехника</span></div></div>
+      <div class="exh-item"><span class="exh-num">11</span><div><span class="exh-name">MosBuild</span><span class="exh-en">Строительные материалы</span></div></div>
+      <div class="exh-item"><span class="exh-num">12</span><div><span class="exh-name">Expo Electronica</span><span class="exh-en">Электронные компоненты</span></div></div>
+      <div class="exh-item"><span class="exh-num">13</span><div><span class="exh-name">Металлообработка</span><span class="exh-en">Металлообработка</span></div></div>
+      <div class="exh-item"><span class="exh-num">14</span><div><span class="exh-name">RosBuild</span><span class="exh-en">Строительство и технологии</span></div></div>
+      <div class="exh-item"><span class="exh-num">15</span><div><span class="exh-name">Нефтегаз</span><span class="exh-en">Нефтегазовый комплекс</span></div></div>
+      <div class="exh-item"><span class="exh-num">16</span><div><span class="exh-name">RosUpack</span><span class="exh-en">Упаковочная индустрия</span></div></div>
+      <div class="exh-item"><span class="exh-num">17</span><div><span class="exh-name">Mining World</span><span class="exh-en">Добыча полезных ископаемых</span></div></div>
+      <div class="exh-item"><span class="exh-num">18</span><div><span class="exh-name">China Commodity Fair</span><span class="exh-en">Китайские потребительские товары</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Проекты</h2>
+      <span class="section-title-chinese">项目经验</span>
+    </div>
+    <div class="section-line"></div>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-img">
+          <span class="project-fallback">Фармпроизводство</span>
+          <img src="project-pharma.jpg" alt="Фармпроизводство" onerror="this.remove()">
+        </div>
+        <div class="project-body">
+          <div class="project-cat">Промышленность</div>
+          <div class="project-title">Перевод на фармпроизводстве (GMP)</div>
+          <div class="project-desc">Сопровождение пусконаладочных работ, перевод на линии фармацевтического производства.</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img">
+          <span class="project-fallback">Делегация КНР</span>
+          <img src="project-delegation.jpg" alt="Делегация" onerror="this.remove()">
+        </div>
+        <div class="project-body">
+          <div class="project-cat">Делегации</div>
+          <div class="project-title">Ассоциация нефтяной и химической промышленности КНР</div>
+          <div class="project-desc">Сопровождение китайской делегации по городам России, работа с профильными министерствами.</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img">
+          <span class="project-fallback">Завод · ПНР</span>
+          <img src="project-factory.jpg" alt="Завод" onerror="this.remove()">
+        </div>
+        <div class="project-body">
+          <div class="project-cat">Промышленность</div>
+          <div class="project-title">Пусконаладка на заводах</div>
+          <div class="project-desc">Перевод при вводе оборудования в эксплуатацию: 针织机, 覆膜机, 印刷机 и другие линии.</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img">
+          <span class="project-fallback">Онлайн-переговоры</span>
+          <img src="project-online.jpg" alt="Онлайн-переговоры" onerror="this.remove()">
+        </div>
+        <div class="project-body">
+          <div class="project-cat">Переговоры</div>
+          <div class="project-title">Онлайн-переговоры (RU ↔ CN ↔ EN)</div>
+          <div class="project-desc">Трёхсторонний последовательный перевод на регулярных бизнес-встречах.</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img">
+          <span class="project-fallback">Стенд на выставке</span>
+          <img src="project-exhibition.jpg" alt="Выставка" onerror="this.remove()">
+        </div>
+        <div class="project-body">
+          <div class="project-cat">Выставки</div>
+          <div class="project-title">Стендовый перевод</div>
+          <div class="project-desc">Работа на стендах китайских компаний, привлечение клиентов, синхронный перевод переговоров.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Сертификаты и квалификация</h2>
+      <span class="section-title-chinese">证书与资质</span>
+    </div>
+    <div class="section-line"></div>
+
+    <div class="certs-grid">
+
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-fallback">HSK 6</span>
+          <img src="cert-hsk6.jpg" alt="HSK 6" onerror="this.remove()">
+        </div>
+        <div class="cert-info">
+          <div class="cert-year">2017</div>
+          <div class="cert-name">HSK 6 — высший уровень владения китайским языком</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-fallback">TOCFL 3</span>
+          <img src="cert-tocfl.jpg" alt="TOCFL 3" onerror="this.remove()">
+        </div>
+        <div class="cert-info">
+          <div class="cert-year">2015</div>
+          <div class="cert-name">TOCFL 3 — уровень B1 по тайваньской системе</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-fallback">Лян Лэтянь · ПП</span>
+          <img src="cert-liang-sequence.jpg" alt="Курс последовательного перевода" onerror="this.remove()">
+        </div>
+        <div class="cert-info">
+          <div class="cert-year">2025</div>
+          <div class="cert-name">Курс последовательного перевода — школа Лян Лэтяня</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-fallback">Лян Лэтянь · Числ.</span>
+          <img src="cert-liang-numerals.jpg" alt="Числительные в переводе" onerror="this.remove()">
+        </div>
+        <div class="cert-info">
+          <div class="cert-year">2026</div>
+          <div class="cert-name">Курс по числительным в переводе — школа Лян Лэтяня</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-fallback">Этика переводчика</span>
+          <img src="cert-ethics.jpg" alt="Основы этики переводчика" onerror="this.remove()">
+        </div>
+        <div class="cert-info">
+          <div class="cert-year">2024</div>
+          <div class="cert-name">Семинар «Основы этики переводчика» — Союз Китаистов</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-fallback">Далянь · 中文 + 商务</span>
+          <img src="cert-dalian.jpg" alt="Dalian" onerror="this.remove()">
+        </div>
+        <div class="cert-info">
+          <div class="cert-year">2022</div>
+          <div class="cert-name">«Китайский язык + Бизнес» — Даляньский политехнический университет</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-fallback">Шэньчжэнь</span>
+          <img src="cert-shenzhen.jpg" alt="Shenzhen" onerror="this.remove()">
+        </div>
+        <div class="cert-info">
+          <div class="cert-year">2021</div>
+          <div class="cert-name">МГУ-ППИ в Шэньчжэне — семинар для преподавателей китайского</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-fallback">Союз Китаистов</span>
+          <img src="cert-soyuz.jpg" alt="Союз Китаистов" onerror="this.remove()">
+        </div>
+        <div class="cert-info">
+          <div class="cert-year">2026</div>
+          <div class="cert-name">Союз Китаистов — «Лучший переводчик месяца»</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Навыки</h2>
+      <span class="section-title-chinese">技能</span>
+    </div>
+    <div class="section-line"></div>
+
+    <div class="skills-groups">
+
+      <div class="skill-block">
+        <h3>Языки</h3>
+        <div class="skill-list">
+          <span class="skill-tag">Русский — родной</span>
+          <span class="skill-tag">Китайский — C1+ / HSK 6</span>
+          <span class="skill-tag">Английский — свободный</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <h3>Специализация</h3>
+        <div class="skill-list">
+          <span class="skill-tag">Последовательный перевод</span>
+          <span class="skill-tag">Переговоры</span>
+          <span class="skill-tag">Выставки</span>
+          <span class="skill-tag">Промышленный перевод</span>
+          <span class="skill-tag">Сопровождение делегаций</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <h3>Инструменты</h3>
+        <div class="skill-list">
+          <span class="skill-tag">1С</span>
+          <span class="skill-tag">Битрикс24</span>
+          <span class="skill-tag">Microsoft Office</span>
+          <span class="skill-tag">CAT-инструменты</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <h3>Личные качества</h3>
+        <div class="skill-list">
+          <span class="skill-tag">Добросовестность</span>
+          <span class="skill-tag">Пунктуальность</span>
+          <span class="skill-tag">Внимательность</span>
+          <span class="skill-tag">Коммуникабельность</span>
+          <span class="skill-tag">Творческий подход</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-title">Связаться</div>
+    <div class="cta-sub">联系方式</div>
+    <div class="cta-links">
+      <a class="contact-chip" href="tel:+79636018686">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +7 963 601 86 86
+      </a>
+      <a class="contact-chip" href="mailto:papulova_av@mail.ru">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        papulova_av@mail.ru
+      </a>
+      <span class="contact-chip">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 2.8C4.8 2.8 1 6 1 9.9c0 2.1 1.1 3.9 2.9 5.1l-.7 2.8 3.2-1.5c.9.2 1.9.3 2.9.3.3 0 .6 0 .9-.05-.1-.4-.2-.85-.2-1.25 0-3.6 3.1-6.5 6.9-6.5.4 0 .7.03 1.1.08-.5-3.3-3.3-5.83-6.5-5.83z"/><path d="M17.5 10.5c-3.3 0-6 2.3-6 5.2 0 2.9 2.7 5.2 6 5.2.6 0 1.2-.1 1.7-.2l2.5 1.3-.6-2.3c1.5-1 2.4-2.4 2.4-4 0-2.9-2.7-5.2-6-5.2z"/></svg>
+        WeChat: xiaosasha2013
+      </span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  © Александра Папулова · Переводчик китайского языка · 纪雅珊
+</footer>
+
+</body>
+</html>
